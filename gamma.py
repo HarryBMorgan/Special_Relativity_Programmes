@@ -1,9 +1,12 @@
 #Calculation of gamma factor in soecial relativity.
+from math import sqrt
+
 #Define a function to calculate gamma.
 def gamma(v):
     c = 299792458   #Define speed of light in m/s.
-    v *= c
-    return 1 / (1 - (v**2 / c**2))
+    if v < 0.1 * c: #If v is not in order of c, assume it's a decimal and * c.
+        v *= c
+    return 1 / sqrt(1 - (v**2 / c**2))
 
 
 #__Main__
